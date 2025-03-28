@@ -20,11 +20,17 @@ import matplotlib.animation
 import matplotlib.artist
 import matplotlib.pyplot as plt
 import torch
-from IPython.display import HTML
+from IPython.display import HTML, Image
 from tqdm.auto import tqdm
 
 # %%
 print(sys.version)
+
+# %%
+f"{torch.__version__=}"
+
+# %%
+torch.random.manual_seed(334)
 
 # %%
 x = torch.arange(4)
@@ -142,3 +148,10 @@ HTML(ani.to_jshtml())
 
 # %% [markdown]
 # なぜ振動するのでしょう？
+
+# %%
+filename_gif = "embedding-optimization.gif"
+ani.save(filename_gif, writer="ffmpeg")
+
+# %%
+Image(filename=filename_gif)
